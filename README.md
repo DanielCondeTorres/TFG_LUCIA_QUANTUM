@@ -8,10 +8,15 @@ Luego en una terminal donde vayas a trabajar, probablemente en $LUSTRE harias:
 ```
 git clone https://github.com/.../TFG_LUCIA_QUANTUM 
 ```
+
+NO NECESARIO (NO VAS A USAR .GIT)
+
 Pon tu correo usc
 ```
 git config user.name "Lucia" && git config user.email "lucia.rodriguez.de@rai.usc.es"
 ```
+
+
 
 # Send a job
 
