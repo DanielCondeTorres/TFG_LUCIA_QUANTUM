@@ -1,0 +1,424 @@
+{
+    "input_parameters": {
+        "sequence": "APRLR",
+        "interface_axis": 1,
+        "interface_weight": 5.0,
+        "interface_displacement": -10.5
+    },
+    "execution_info": {
+        "timestamp": "2025-01-29 18:15:10",
+        "cost_function_evals": 10,
+        "num_qubits": 3,
+        "execution_time_seconds": 57.90454649925232,
+        "hardware_info": {
+            "system": "Linux",
+            "processor": "x86_64",
+            "python_version": "3.9.9",
+            "cpu_count": 64,
+            "ram_total_gb": 1007.37,
+            "ram_available_gb": 993.61,
+            "selected_qubits": [
+                29,
+                28,
+                25
+            ]
+        }
+    },
+    "qubit_info": {
+        "selected_qubits": [
+            29,
+            28,
+            25
+        ],
+        "metrics": {
+            "29": {
+                "basic_metrics": {
+                    "IRB": 0.999,
+                    "IRO": 0.327,
+                    "RE": 10057.022
+                },
+                "connectivity": {
+                    "total_connections": 3,
+                    "connected_to": [
+                        28,
+                        30,
+                        26
+                    ]
+                },
+                "quality_metrics": {
+                    "irb": 0.999,
+                    "iro": 0.327,
+                    "readout_error": 10057.022,
+                    "quality_metric": 1.3337022,
+                    "connectivity_count": 3,
+                    "combined_metric": 1.7782696
+                }
+            },
+            "28": {
+                "basic_metrics": {
+                    "IRB": 0.982,
+                    "IRO": 0.376,
+                    "RE": 9847.277
+                },
+                "connectivity": {
+                    "total_connections": 3,
+                    "connected_to": [
+                        29,
+                        25,
+                        31
+                    ]
+                },
+                "quality_metrics": {
+                    "irb": 0.982,
+                    "iro": 0.376,
+                    "readout_error": 9847.277,
+                    "quality_metric": 1.3787277,
+                    "connectivity_count": 3,
+                    "combined_metric": 1.8383036
+                }
+            },
+            "25": {
+                "basic_metrics": {
+                    "IRB": 0.982,
+                    "IRO": 0.376,
+                    "RE": 9847.277
+                },
+                "connectivity": {
+                    "total_connections": 3,
+                    "connected_to": [
+                        26,
+                        22,
+                        28
+                    ]
+                },
+                "quality_metrics": {
+                    "irb": 0.982,
+                    "iro": 0.376,
+                    "readout_error": 9847.277,
+                    "quality_metric": 1.3787277,
+                    "connectivity_count": 3,
+                    "combined_metric": 1.8383036
+                }
+            }
+        },
+        "connectivity_map": {
+            "29-28": {
+                "connected": true,
+                "distance": 1
+            },
+            "29-25": {
+                "connected": false,
+                "distance": 2
+            },
+            "28-25": {
+                "connected": true,
+                "distance": 1
+            }
+        }
+    },
+    "circuit_analysis": {
+        "transpiled_metrics": {
+            "depth": 35,
+            "width": 35,
+            "size": 69,
+            "gate_counts": {
+                "rz": 33,
+                "sx": 23,
+                "ecr": 8,
+                "measure": 3,
+                "x": 2,
+                "barrier": 1
+            },
+            "nonlocal_gates": 9,
+            "measurement_counts": 3,
+            "two_qubit_gate_depth": 9
+        },
+        "execution_parameters": {
+            "shots_per_circuit": 8000,
+            "repetition_period": 0.0005,
+            "optimization_level": 2
+        },
+        "qwc_groups": {
+            "number_of_groups": 1,
+            "groups": [
+                "['III', 'ZII', 'IZZ', 'ZZZ', 'IIZ', 'IZI', 'ZZI', 'ZIZ']"
+            ],
+            "pauli_terms": [
+                "III",
+                "ZII",
+                "IZZ",
+                "ZZZ",
+                "IIZ",
+                "IZI",
+                "ZZI",
+                "ZIZ"
+            ],
+            "coefficients": [
+                {
+                    "real": 15.61455218706253,
+                    "imag": 0.0
+                },
+                {
+                    "real": 0.2985498626562486,
+                    "imag": 0.0
+                },
+                {
+                    "real": 4.8683295690624995,
+                    "imag": 0.0
+                },
+                {
+                    "real": -4.8683295690624995,
+                    "imag": 0.0
+                },
+                {
+                    "real": 2.717567219156248,
+                    "imag": 0.0
+                },
+                {
+                    "real": -2.7985498626562486,
+                    "imag": 0.0
+                },
+                {
+                    "real": 2.7985498626562486,
+                    "imag": 0.0
+                },
+                {
+                    "real": -2.3683295690624995,
+                    "imag": 0.0
+                }
+            ]
+        },
+        "measurement_statistics": {
+            "counts": {
+                "000": 1482,
+                "011": 1486,
+                "001": 765,
+                "010": 898,
+                "110": 1005,
+                "111": 1697,
+                "100": 415,
+                "101": 252
+            },
+            "probabilities": {
+                "000": 0.18525,
+                "011": 0.18575,
+                "001": 0.095625,
+                "010": 0.11225,
+                "110": 0.125625,
+                "111": 0.212125,
+                "100": 0.051875,
+                "101": 0.0315
+            },
+            "best_bitstring": "111",
+            "best_probability": 0.212125
+        },
+        "optimization_progress": {
+            "iterations": 11,
+            "energy_values": [
+                18.14942762273167,
+                18.432794543055653,
+                18.045631684335255,
+                18.233320932187485,
+                18.199966565549122,
+                18.114733822833532,
+                18.78045470523833,
+                17.6103894292983,
+                17.470568190933935,
+                17.795342647896824,
+                17.795342647896824
+            ],
+            "final_energy": 17.795342647896824,
+            "best_energy": 17.470568190933935
+        }
+    },
+    "vqe_configuration": {
+        "ansatz_params": {
+            "num_qubits": 3,
+            "num_parameters": 6,
+            "depth": 35
+        },
+        "optimizer_params": {
+            "maxiter": 10,
+            "rhobeg": 1.0,
+            "disp": true,
+            "catol": 0.0001
+        },
+        "initial_point": "[0.9901740025970183, 0.05397162063531047, 2.8016252398749177, 1.182005929262031, -0.6075267720912056, 0.4111197891820759]"
+    },
+    "optimization_results": {
+        "optimal_value": {
+            "value": 17.470568190933935,
+            "description": "Lowest energy found for the protein conformation",
+            "units": "arbitrary energy units"
+        },
+        "circuit_info": {
+            "total_qubits": 3,
+            "total_parameters": 6,
+            "depth": 35,
+            "type": "TwoLocal",
+            "description": "TwoLocal ansatz with rx,ry rotations and cx gates",
+            "ascii_file": "circuit_ascii_20250129_181510.txt",
+            "image_file": "circuit_diagram_20250129_181510.png",
+            "operations": 70,
+            "gate_counts": {
+                "rz": 33,
+                "sx": 23,
+                "ecr": 8,
+                "measure": 3,
+                "x": 2,
+                "barrier": 1
+            },
+            "physical_qubits": [
+                29,
+                28,
+                25
+            ],
+            "transpiled_info": {
+                "depth": 35,
+                "size": 70,
+                "initial_layout": [
+                    29,
+                    28,
+                    25
+                ]
+            }
+        },
+        "optimal_parameters": {
+            "angle_0": {
+                "value": 1.4000584106213945,
+                "qubit_logical": 0,
+                "qubit_physical": 29,
+                "layer": 0,
+                "description": "Ry rotation on logical qubit 0 (physical qubit 29) in layer 0",
+                "gate_type": "Ry",
+                "radians": 1.4000584106213945,
+                "degrees": 80.2174380003999
+            },
+            "angle_1": {
+                "value": 1.266092649312633,
+                "qubit_logical": 1,
+                "qubit_physical": 28,
+                "layer": 0,
+                "description": "Ry rotation on logical qubit 1 (physical qubit 28) in layer 0",
+                "gate_type": "Ry",
+                "radians": 1.266092649312633,
+                "degrees": 72.54176527815088
+            },
+            "angle_2": {
+                "value": 2.418056894704847,
+                "qubit_logical": 2,
+                "qubit_physical": 25,
+                "layer": 0,
+                "description": "Ry rotation on logical qubit 2 (physical qubit 25) in layer 0",
+                "gate_type": "Ry",
+                "radians": 2.418056894704847,
+                "degrees": 138.54445468909745
+            },
+            "angle_3": {
+                "value": 0.8666017403346531,
+                "qubit_logical": 0,
+                "qubit_physical": 29,
+                "layer": 1,
+                "description": "Ry rotation on logical qubit 0 (physical qubit 29) in layer 1",
+                "gate_type": "Ry",
+                "radians": 0.8666017403346531,
+                "degrees": 49.6526222398677
+            },
+            "angle_4": {
+                "value": -0.7487463316280688,
+                "qubit_logical": 1,
+                "qubit_physical": 28,
+                "layer": 1,
+                "description": "Ry rotation on logical qubit 1 (physical qubit 28) in layer 1",
+                "gate_type": "Ry",
+                "radians": -0.7487463316280688,
+                "degrees": -42.90000472819105
+            },
+            "angle_5": {
+                "value": -1.0905903692100138,
+                "qubit_logical": 2,
+                "qubit_physical": 25,
+                "layer": 1,
+                "description": "Ry rotation on logical qubit 2 (physical qubit 25) in layer 1",
+                "gate_type": "Ry",
+                "radians": -1.0905903692100138,
+                "degrees": -62.486225333347996
+            }
+        }
+    },
+    "protein_info": {
+        "sequence": "APRLR",
+        "length": 5,
+        "interface_params": {
+            "interface_axis": 1,
+            "interface_weight": 5.0,
+            "interface_displacement": -10.5
+        }
+    },
+    "measurement_results": {
+        "best_measurement": {
+            "state": 7,
+            "bitstring": "111",
+            "value": 17.470568190933935,
+            "probability": 0.212125
+        },
+        "aux_operators_evaluated": {
+            "qubit_mapping": [
+                29,
+                28,
+                25
+            ]
+        }
+    },
+    "coordinates": [
+        [
+            "A",
+            "0.0",
+            "0.0",
+            "0.0"
+        ],
+        [
+            "P",
+            "0.5773502691896258",
+            "0.5773502691896258",
+            "-0.5773502691896258"
+        ],
+        [
+            "R",
+            "1.1547005383792517",
+            "0.0",
+            "-1.1547005383792517"
+        ],
+        [
+            "L",
+            "1.7320508075688776",
+            "-0.5773502691896258",
+            "-0.5773502691896258"
+        ],
+        [
+            "R",
+            "1.154700538379252",
+            "0.0",
+            "-1.1547005383792517"
+        ]
+    ],
+    "main_turns": [
+        1,
+        0,
+        3,
+        3
+    ],
+    "side_turns": [
+        null,
+        null,
+        null,
+        null,
+        null
+    ],
+    "visualization_files": {
+        "convergence_plot": "protein_folding_results_20250129_181511_convergence.png",
+        "state_probabilities": "protein_folding_results_20250129_181511_probabilities.png",
+        "structure_plot": "structure.png",
+        "circuit_diagram": "circuit_diagram_20250129_181511.png"
+    }
+}
