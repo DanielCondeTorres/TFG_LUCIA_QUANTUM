@@ -1,5 +1,17 @@
 # TFG_LUCIA_QUANTUM
 Initial Code for Protein Folding
+# Para empezar
+En tu github haces un fork del mío: https://github.com/DanielCondeTorres/TFG_LUCIA_QUANTUM
+
+Luego en una terminal donde vayas a trabajar, probablemente en $LUSTRE harias:
+
+```
+git clone https://github.com/.../TFG_LUCIA_QUANTUM 
+```
+Pon tu correo usc
+```
+git config user.name "Lucia" && git config user.email "lucia.rodriguez.de@rai.usc.es"
+```
 
 # Send a job
 
