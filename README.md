@@ -18,6 +18,9 @@ git config user.name "Lucia" && git config user.email "lucia.rodriguez.de@rai.us
 ```
 sbatch -p qpu -c 1 -t 00:30:00 --mem=128G QrunQMIPbackend.sh
 ```
+
+Entrar en QrunQMIPbackend.sh y añadir las flags que necesitamos en la línea:
+python -u pf.py --sequence --axis  --weight --displacement --shots
 # Make representations:
 
 Download the folder to your local computer:
