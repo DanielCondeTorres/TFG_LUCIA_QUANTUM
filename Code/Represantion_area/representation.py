@@ -43,8 +43,7 @@ def load_representation_from_json(json_filename):
     
     return side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points
 
-# Función para visualizar la estructura
-def plot_from_json(json_filename):
+def plot_from_json(json_filename, output_filename):
     # Cargar los datos desde el JSON
     side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points = load_representation_from_json(json_filename)
 
@@ -57,41 +56,37 @@ def plot_from_json(json_filename):
         mlab.points3d(x_side, y_side, z_side, mode='sphere', color=(0, 1, 0), scale_factor=0.1, opacity=1)
 
     # Visualizar la cadena principal
-    for chain in main_chain_data:
+    for i, chain in enumerate(main_chain_data):
         x_main, y_main, z_main = chain["position"]
         aminoacid = chain["aminoacid"]
-        
-        # Obtener el color del aminoácido
         color = aminoacid_info[aminoacid]['color_mayavi']
-        
-        # Mostrar los puntos de la cadena principal
+
         mlab.points3d(x_main, y_main, z_main, mode='sphere', color=color, scale_factor=0.1, opacity=1)
-        
-        # Conectar los puntos con líneas (para formar la cadena)
-        if main_chain_data.index(chain) < len(main_chain_data) - 1:
-            next_chain = main_chain_data[main_chain_data.index(chain) + 1]
-            mlab.plot3d([x_main, next_chain["position"][0]], 
-                        [y_main, next_chain["position"][1]], 
-                        [z_main, next_chain["position"][2]], 
+
+        # Conectar los puntos con líneas
+        if i < len(main_chain_data) - 1:
+            next_chain = main_chain_data[i + 1]
+            mlab.plot3d([x_main, next_chain["position"][0]],
+                        [y_main, next_chain["position"][1]],
+                        [z_main, next_chain["position"][2]],
                         tube_radius=0.03, color=color, opacity=0.6)
 
     # Dibujar el plano si C != 0
-    if len(x_plane_points) > 0 and len(y_plane_points) > 0 and len(z_plane_points) > 0:
+    if x_plane_points and y_plane_points and z_plane_points:
         mlab.mesh(x_plane_points, y_plane_points, z_plane_points, color=(0.5, 0.0, 0.5), opacity=0.7)
 
-    # Mostrar la visualización interactiva
+    # Guardar la imagen en archivo
     mlab.show()
+    mlab.savefig(output_filename, size=(1024, 768))
 
-# Función para configurar el parser de argumentos
 def main():
-    parser = argparse.ArgumentParser(description="Visualización 3D de proteínas usando Mayavi.")
-    parser.add_argument("json_file", type=str, help="Archivo JSON con los datos de la proteína.")
+    parser = argparse.ArgumentParser(description="Visualización 3D de proteínas usando Mayavi y guardado de imagen.")
+    parser.add_argument("-json_file", required=True, type=str, help="Archivo JSON con los datos de la proteína.")
+    parser.add_argument("-output_file", required=True, type=str, help="Nombre del archivo de salida (ej. output.png).")
     args = parser.parse_args()
-    
-    # Llamar a la función de visualización pasando el archivo JSON como argumento
-    plot_from_json(args.json_file)
 
-# Ejecutar el parser
+    plot_from_json(args.json_file, args.output_file)
+
 if __name__ == "__main__":
     main()
 

@@ -1,1 +1,0 @@
-sbatch -p qpu -c 1 -t 00:02:00 --mem=128G PFRA.sh
