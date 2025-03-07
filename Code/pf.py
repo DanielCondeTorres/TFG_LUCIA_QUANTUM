@@ -46,6 +46,7 @@ def parse_arguments():
                       help='Relative displacement from interface (default: 0.5)')
     parser.add_argument('--shots', type=int, default=8000,
                       help='Number of shots per circuit (default: 8000)')
+    parser.add_argument('--iteractions_cobyla', type=int, default=10, help='Number of COBYLA optimization iteracions (default: 10')
     args = parser.parse_args()
     
     valid_amino_acids = set("ACDEFGHIKLMNPQRSTVWY")
@@ -437,7 +438,7 @@ if __name__ == "__main__":
         initial_point = 2*np.pi*np.random.random(ansatz.num_parameters)-np.pi
         
         cobyla_params = {
-            'maxiter': 10,      # Número máximo de iteraciones
+            'maxiter': args.iteractions_cobyla,      # Número máximo de iteraciones
             'rhobeg': 1.0,      # Tamaño inicial del radio de la región de confianza
             'disp': True,       # Mostrar mensajes de progreso
             'catol': 1e-4       # Tolerancia absoluta en la restricción
