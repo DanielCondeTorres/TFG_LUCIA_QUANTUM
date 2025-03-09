@@ -37,9 +37,9 @@ def load_representation_from_json(json_filename):
     main_chain_data = data['main_chain']
     plane_data = data['plane']
     
-    x_plane_points = np.array(plane_data['x'])
-    y_plane_points = np.array(plane_data['y'])
-    z_plane_points = np.array(plane_data['z'])
+    x_plane_points = np.array(plane_data['x'])/2
+    y_plane_points = np.array(plane_data['y'])/2
+    z_plane_points = np.array(plane_data['z'])/2
     
     return side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points
 
@@ -61,7 +61,7 @@ def plot_from_json(json_filename, output_filename):
         aminoacid = chain["aminoacid"]
         color = aminoacid_info[aminoacid]['color_mayavi']
 
-        mlab.points3d(x_main, y_main, z_main, mode='sphere', color=color, scale_factor=0.1, opacity=1)
+        mlab.points3d(x_main, y_main, z_main, mode='sphere', color=color, scale_factor=0.7, opacity=1)
 
         # Conectar los puntos con líneas
         if i < len(main_chain_data) - 1:
@@ -70,9 +70,9 @@ def plot_from_json(json_filename, output_filename):
                         [y_main, next_chain["position"][1]],
                         [z_main, next_chain["position"][2]],
                         tube_radius=0.03, color=color, opacity=0.6)
-
+            
     # Dibujar el plano si C != 0
-    if x_plane_points and y_plane_points and z_plane_points:
+    if x_plane_points.any() and y_plane_points.any() and z_plane_points.any():
         mlab.mesh(x_plane_points, y_plane_points, z_plane_points, color=(0.5, 0.0, 0.5), opacity=0.7)
 
     # Guardar la imagen en archivo
@@ -81,12 +81,11 @@ def plot_from_json(json_filename, output_filename):
 
 def main():
     parser = argparse.ArgumentParser(description="Visualización 3D de proteínas usando Mayavi y guardado de imagen.")
-    parser.add_argument("-json_file", required=True, type=str, help="Archivo JSON con los datos de la proteína.")
-    parser.add_argument("-output_file", required=True, type=str, help="Nombre del archivo de salida (ej. output.png).")
+    parser.add_argument("-json_file", default='../Output/representacion.json ',type=str, help="Archivo JSON con los datos de la proteína.")
+    parser.add_argument("-output_file", type=str, default='Fes.png',help="Nombre del archivo de salida (ej. output.png).")
     args = parser.parse_args()
 
     plot_from_json(args.json_file, args.output_file)
 
 if __name__ == "__main__":
     main()
-
