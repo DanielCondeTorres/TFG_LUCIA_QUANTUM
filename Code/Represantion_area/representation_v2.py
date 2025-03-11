@@ -30,7 +30,7 @@ aminoacid_info = {
 }
 
 # Función para cargar los datos desde el JSON
-def load_representation_from_json(json_filename):
+def load_representation_from_json(json_filename, factor=2):
     with open(json_filename, "r") as file:
         data = json.load(file)
     
@@ -38,16 +38,16 @@ def load_representation_from_json(json_filename):
     main_chain_data = data['main_chain']
     plane_data = data['plane']
     
-    x_plane_points = np.array(plane_data['x'])/2
-    y_plane_points = np.array(plane_data['y'])/2
-    z_plane_points = np.array(plane_data['z'])/2
+    x_plane_points = np.array(plane_data['x'])/factor
+    y_plane_points = np.array(plane_data['y'])/factor
+    z_plane_points = np.array(plane_data['z'])/factor
     
     return side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points
 
 # Función para crear la visualización
-def plot_from_json(json_filename, output_filename):
+def plot_from_json(json_filename, output_filename, factor=2):
     # Cargar los datos desde el JSON
-    side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points = load_representation_from_json(json_filename)
+    side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points = load_representation_from_json(json_filename,factor)
 
     # Crear la figura de Matplotlib
     fig = plt.figure(figsize=(10, 8))
@@ -107,9 +107,10 @@ def main():
     parser = argparse.ArgumentParser(description="Visualización 3D de proteínas usando Matplotlib y guardado de imagen.")
     parser.add_argument("-json_file", type=str, required=True, help="Archivo JSON con los datos de la proteína.")
     parser.add_argument("-output_file", type=str, default='output.png', help="Nombre del archivo de salida (ej. output.png).")
+    parser.add_argument("-factor", default=2,type=float, help="Archivo JSON con los datos de la proteína.")
     args = parser.parse_args()
 
-    plot_from_json(args.json_file, args.output_file)
+    plot_from_json(args.json_file, args.output_file, args.factor)
 
 if __name__ == "__main__":
     main()
