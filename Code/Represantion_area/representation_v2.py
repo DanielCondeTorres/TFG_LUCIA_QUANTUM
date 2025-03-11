@@ -38,9 +38,9 @@ def load_representation_from_json(json_filename):
     main_chain_data = data['main_chain']
     plane_data = data['plane']
     
-    x_plane_points = np.array(plane_data['x'])/8
-    y_plane_points = np.array(plane_data['y'])/8
-    z_plane_points = np.array(plane_data['z'])/8
+    x_plane_points = np.array(plane_data['x'])/2
+    y_plane_points = np.array(plane_data['y'])/2
+    z_plane_points = np.array(plane_data['z'])/2
     
     return side_chain_data, main_chain_data, x_plane_points, y_plane_points, z_plane_points
 
