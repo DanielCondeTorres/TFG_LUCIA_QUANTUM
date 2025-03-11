@@ -107,7 +107,7 @@ def main():
     parser = argparse.ArgumentParser(description="Visualización 3D de proteínas usando Matplotlib y guardado de imagen.")
     parser.add_argument("-json_file", type=str, required=True, help="Archivo JSON con los datos de la proteína.")
     parser.add_argument("-output_file", type=str, default='output.png', help="Nombre del archivo de salida (ej. output.png).")
-    parser.add_argument("-factor", default=2,type=float, help="Archivo JSON con los datos de la proteína.")
+    parser.add_argument("-factor", default=2,type=float, help="factor to scale the plane representation.")
     args = parser.parse_args()
 
     plot_from_json(args.json_file, args.output_file, args.factor)
